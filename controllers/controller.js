@@ -26,4 +26,5 @@ Controller.prototype.onKeyPress = function () {
 
 Controller.prototype.onClickNewGame = function () {
     this.matrixModel.beginNewGame();
+    // console.log('hello');
 };

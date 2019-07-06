@@ -12,7 +12,7 @@ MatrixView.prototype = Object.create(BaseView.prototype);
 MatrixView.prototype.constructor = MatrixView;
 
 MatrixView.prototype.beforeRender = function () {
-    this.matrixModel.subscribe('changeData', this.beforeRender, this);
+    this.matrixModel.subscribe('changeData', this.reRender, this);
 };
 
 MatrixView.prototype.render = function () {
