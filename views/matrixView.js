@@ -29,7 +29,11 @@ MatrixView.prototype.render = function () {
 };
 
 MatrixView.prototype.afterRender = function () {
+    var controller_content = this.controller;
     window.onkeydown = this.controller.onKeyPress.bind(this.controller);
-    var newGameButton = document.getElementById('newGameBtn');
-    newGameButton.addEventListener('click', this.controller.onClickNewGame.bind(this.controller));
+    window.addEventListener('click', function(event) {
+        if (event.target.textContent === 'New Game') {
+            controller_content.onClickNewGame.call(controller_content);
+        }
+    });
 };
