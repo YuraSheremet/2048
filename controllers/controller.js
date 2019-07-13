@@ -1,6 +1,6 @@
 function Controller() {
     this.matrixModel = new MatrixModel();
-    // this.summaryModel = new SummaryModel();
+    this.summaryModel = new SummaryModel();
 }
 
 Controller.prototype.onKeyPress = function () {
@@ -21,10 +21,12 @@ Controller.prototype.onKeyPress = function () {
         default:
             return false;
     }
-    this.matrixModel.showAction(key);
+    var total = this.matrixModel.displayActionResults(key);
+    this.summaryModel.countTotalScore(total);
+    this.summaryModel.countBestScore();
 };
 
 Controller.prototype.onClickNewGame = function () {
     this.matrixModel.beginNewGame();
-    // console.log('hello');
+    this.summaryModel.reset();
 };
